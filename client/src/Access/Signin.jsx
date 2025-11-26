@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 
 import { signin_api } from "../APIs/auth.api";
-import { setAuth } from "../redux/auth.slice";
 
 function Signin() {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
   const [error, setError] = useState("");
 
-  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleSubmit = async(e) => { 
@@ -19,7 +16,6 @@ function Signin() {
     try {
         const response = await signin_api({email,password})
         if(response?.isLogin){
-            dispatch(setAuth(true))
             navigate('/home')
         }
     } catch (error) {
