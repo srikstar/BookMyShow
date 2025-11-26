@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { signin_api } from "../APIs/auth.api";
+import { setAuth } from "../redux/auth.slice";
 
 function Signin() {
   const [email, setEmail] = useState(""); 
@@ -9,6 +11,7 @@ function Signin() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleSubmit = async(e) => { 
     e.preventDefault(); 
@@ -16,6 +19,7 @@ function Signin() {
     try {
         const response = await signin_api({email,password})
         if(response?.isLogin){
+            dispatch(setAuth(true))
             navigate('/home')
         }
     } catch (error) {

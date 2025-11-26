@@ -26,7 +26,7 @@ function App() {
       }
     }
     user()
-  }),[dispatch]
+  },[dispatch])
 
   return (
     <>
