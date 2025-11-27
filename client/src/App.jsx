@@ -10,7 +10,8 @@ import { user_api } from './APIs/auth.api'
 import { setAuth } from './redux/auth.slice'
 import Public from './Public'
 import Protected from './Protected'
-import Profile from './Profile'
+
+import Admin from './Admin'
 
 function App() {
   const dispatch = useDispatch()
@@ -36,7 +37,7 @@ function App() {
           <Route path='/signin' element={<Public><Signin /></Public>} />
           <Route path='/signup' element={<Public><Signup /></Public>} />
           <Route path='/home' element={<Protected><Home /></Protected>} />
-          <Route path='/profile' element={<Protected><Profile /></Protected>} />
+          <Route path='/admin' element={<Protected><Admin /></Protected>} />
         </Routes>
       </BrowserRouter>
     </>
