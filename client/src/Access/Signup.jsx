@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { signup_api } from "../APIs/auth.api";
 
 function Signup() {
   const [name, setName] = useState(""); 
@@ -7,11 +8,16 @@ function Signup() {
   const [confirm, setConfirm] = useState(""); 
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!name || !email || !password || !confirm) return setError("All fields are required");
     if (password !== confirm) return setError("Passwords do not match");
-    console.log({ name, email, password });
+    try {
+      const response = await signup_api({name, email, password})
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

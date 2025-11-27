@@ -76,7 +76,7 @@ auth.post('/signup', async (req, res) => {
 })
 
 // Home
-auth.get('/user', isAuth, async (req, res) => {
+auth.get('/profile', isAuth, async (req, res) => {
     try {
         const ID = req.userID
         const user = await Users.findById(ID).select('-password')

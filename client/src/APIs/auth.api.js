@@ -30,7 +30,7 @@ export const signup_api = async(values) =>{
 //Signin
 export const user_api = async() =>{
     try {
-        const response = await api.get('/api/auth/user', {withCredentials:true})
+        const response = await api.get('/api/auth/profile', {withCredentials:true})
         return response?.data
     } catch (error) {
         return error?.response?.data

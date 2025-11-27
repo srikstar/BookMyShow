@@ -13,7 +13,6 @@ const isAuth = async(req,res,next) =>{
             message:'Unauthorized access',
             isLogin:false
         })
-        console.log(decoded)
         req.userID = decoded.id
         next()
     } catch (error) {

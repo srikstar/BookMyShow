@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-sb{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    background-color: red;
+}
+
+.navbar-main{
+    width: 90%;
+    height: inherit;
+    background-color: blue;
+}
