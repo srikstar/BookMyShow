@@ -1,14 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { user_api } from './APIs/auth.api'
-import { setUserData } from './redux/auth.slice'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import MainAdmin from './Admin/MainAdmin'
-import MainPartner from './Partner/MainPartner'
-import MainUser from './Pages/User/MainUser'
-
+import { user_api } from './APIs/auth.api'
+import { setUserData } from './redux/auth.slice'
 import { movie_get } from './APIs/movies.api'
 import { setMovies } from './Redux/movies.slice'
 
@@ -49,7 +45,7 @@ useEffect(() => {
                 </div>
             </section>
 
-            <section className='main-display-containers'>
+            {/* <section className='main-display-containers'>
                 {user?.role === 'admin' && (
                     <MainAdmin />
                 )}
@@ -59,7 +55,7 @@ useEffect(() => {
                 {user?.role === 'user' && (
                     <MainUser />
                 )}
-            </section>
+            </section> */}
         </>
     )
 }

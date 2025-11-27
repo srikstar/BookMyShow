@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { signin_api } from "../APIs/auth.api";
-import { setAuth } from "../redux/auth.slice";
+import { signin_api } from "./APIs/auth.api";
+import { setAuth } from "./redux/auth.slice";
 
 function Signin() {
   const [email, setEmail] = useState(""); 
