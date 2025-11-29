@@ -6,6 +6,7 @@ const cors = require('cors')
 const mongodb = require('./mongodb.js')
 const auth  = require('./routers/auth.router.js')
 const movies = require('./routers/movies.router.js')
+const theater = require('./routers/theater.route.js')
 
 dotenv.config()
 const app = express()
@@ -20,6 +21,7 @@ app.use(cors({
 
 app.use('/api/auth', auth)
 app.use('/explore', movies)
+app.use('/theaters', theater)
 
 
 

@@ -13,26 +13,33 @@ function Home() {
 
     const dispatch = useDispatch()
     const { user } = useSelector((state) => state.auth);
- 
-useEffect(() => {
-    (async () => {
-        try {
 
-            const userRes = await user_api();
-            if (userRes?.user) {
-                dispatch(setUserData(userRes.user));
+    const roleRoutes = {
+        admin: "/admin",
+        partner: "/partner",
+        user: "/user",
+    };
+
+
+    useEffect(() => {
+        (async () => {
+            try {
+
+                const userRes = await user_api();
+                if (userRes?.user) {
+                    dispatch(setUserData(userRes.user));
+                }
+
+                const moviesRes = await movie_get();
+                if (moviesRes?.movies) {
+                    dispatch(setMovies(moviesRes.movies));
+                }
+
+            } catch (error) {
+                console.error(error?.response?.data || error);
             }
-
-            const moviesRes = await movie_get();
-            if (moviesRes?.movies) {
-                dispatch(setMovies(moviesRes.movies));
-            }
-
-        } catch (error) {
-            console.error(error?.response?.data || error);
-        }
-    })();
-}, [dispatch]);
+        })();
+    }, [dispatch]);
 
 
 
@@ -41,21 +48,9 @@ useEffect(() => {
             <section className='navbar row'>
                 <div className="navbar-main row-sb">
                     <h3>Logo</h3>
-                    <h3><Link to='/admin'>{user?.role}</Link></h3>
+                    <h3><Link to={roleRoutes[user?.role]}>{user?.role}</Link></h3>
                 </div>
             </section>
-
-            {/* <section className='main-display-containers'>
-                {user?.role === 'admin' && (
-                    <MainAdmin />
-                )}
-                {user?.role === 'partner' && (
-                    <MainPartner />
-                )}
-                {user?.role === 'user' && (
-                    <MainUser />
-                )}
-            </section> */}
         </>
     )
 }

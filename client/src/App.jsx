@@ -12,10 +12,12 @@ import Public from './Public'
 import Protected from './Protected'
 
 import Admin from './Pages/Admin'
+import Partner from './Pages/Partner'
 
 
 function App() {
   const dispatch = useDispatch()
+  
 
   useEffect(() =>{
     const user = async() =>{
@@ -39,6 +41,7 @@ function App() {
           <Route path='/signup' element={<Public><Signup /></Public>} />
           <Route path='/home' element={<Protected><Home /></Protected>} />
           <Route path='/admin' element={<Protected><Admin /></Protected>} />
+          <Route path='/partner' element={<Protected><Partner /></Protected>} />
         </Routes>
       </BrowserRouter>
     </>

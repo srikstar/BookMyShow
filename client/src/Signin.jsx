@@ -29,6 +29,7 @@ function Signin() {
 
   //srikanth.reddy.n@outlook.com
   //srikanthreddyyn@gmail.com
+  //geroge@gmail.com
 
   return (
     <div style={{ maxWidth: "400px", margin: "20px auto" }}>

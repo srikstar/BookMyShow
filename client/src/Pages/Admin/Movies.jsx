@@ -1,16 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+import { movie_delete } from "../../APIs/movies.api";
 import "./Admin.css";
 
 
 function Movies() {
     const moviesData = useSelector((state) => state.movies);
     const movies = moviesData?.movies
-    console.log(movies)
+
+    const [deleteMovie , setDelete] = useState(null)
+
+    useEffect(() =>{
+        if(!deleteMovie) return;
+        const handleDelete = async() =>{
+            console.log(deleteMovie)
+            try {
+                const response = await movie_delete(deleteMovie)
+                return response?.data
+            } catch (error) {
+                return error
+            }
+        }
+        handleDelete()
+    },[deleteMovie])
 
     return (
         <>
-
             <div className="movie-table-container">
                 <table className="movie-table">
                     <thead>
@@ -29,6 +45,7 @@ function Movies() {
                     <tbody>
                         {movies.map((movie) => (
                             <tr key={movie._id}>
+                                <td>{movie._id}</td>
                                 <td>
                                     <img src={movie.poster} alt={movie.title} className="movie-table-poster" />
                                 </td>
@@ -51,10 +68,6 @@ function Movies() {
                                     {/* EDIT BUTTON */}
                                     <button
                                         className="edit-btn"
-                                        onClick={() => {
-                                            setEditMovie(movie); // send full movie data
-                                            setShowEdit(true);
-                                        }}
                                     >
                                         Edit
                                     </button>
