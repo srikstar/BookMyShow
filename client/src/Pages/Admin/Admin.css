@@ -1,0 +1,114 @@
+.admin-main-container{
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+}
+
+.heading-tab{
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    background-color: rgb(168, 168, 168);
+}
+
+
+.movie-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.movie-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+.movie-table thead {
+    background: #222;
+    color: #fff;
+}
+
+.movie-table th,
+.movie-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.movie-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: 0.2s ease-in-out;
+}
+
+.movie-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.movie-table-poster {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.movie-description {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Action Buttons */
+.edit-btn,
+.delete-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: 0.2s ease;
+}
+
+/* EDIT button */
+.edit-btn {
+    background: #3498db;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: #247db5;
+}
+
+/* DELETE button */
+.delete-btn {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .movie-description {
+        max-width: 150px;
+    }
+
+    .movie-table th,
+    .movie-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .movie-table-poster {
+        width: 50px;
+        height: 70px;
+    }
+}
